@@ -1,0 +1,1 @@
+git clone -b v1.61.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc

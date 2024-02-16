@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+service ImageProcessor {
+
+    rpc get_size (FrameImg) returns (ImgSize);
+
+    rpc show (FrameData) returns (EmptyResponse);
+
+    rpc resize (ResizeRequest) returns (FrameImg);
+}
+
+message FrameImg {
+    bytes img_pkl = 1;
+}
+
+message FrameData {
+    bytes img_pkl = 1;
+    string window_name = 2;
+}
+
+message ImgSize {
+    int32 width = 1;
+    int32 height = 2;
+}
+
+message EmptyResponse {}
+
+message ResizeRequest {
+    bytes img_pkl = 1;
+    ImgSize target_size = 2;
+}
